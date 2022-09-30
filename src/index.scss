@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  overflow-x: hidden !important;
+}
 body {
   font-family: "Nunito", sans-serif;
   background-color: #f8f8f8;
@@ -15,7 +18,30 @@ button {
   line-height: 26px;
   font-size: 16px;
 }
+// Title test ----------------------
+[data-title] {
+  position: relative;
+}
+[data-title]:hover:after {
+  opacity: 1;
+  transition: all 0.1s ease 0.5s;
+  visibility: visible;
+}
+[data-title]:after {
+  content: attr(data-title);
+  position: absolute;
+  top: 20px;
+  left: 45%;
+  padding: 8px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 5px;
+  z-index: 9999;
+  line-height: 16px;
+  visibility: hidden;
+}
 
+// -----------------------
 h1,
 h2 {
   font-size: 40px;
@@ -105,10 +131,12 @@ header {
         border-radius: 50%;
         margin-bottom: 20px;
       }
-      p {
+      p span {
+        display: block;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        cursor: pointer;
       }
       .name {
         padding-bottom: 20px;
@@ -218,3 +246,10 @@ header {
     }
   }
 }
+// ---------------------- MEDIA QUERIES
+// @media (max-width: 1024px) {
+//   header .container {
+//     padding: 0 60px;
+//   }
+// }
+// ----------------------
